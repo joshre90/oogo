@@ -20,4 +20,10 @@ module.exports = function (app) {
 		[authJwt.verifyToken, authJwt.isAdmin],
 		controller.adminBoard
 	);
+
+	//Post profile
+	app.post('/api/user/profile', [authJwt.verifyToken], controller.newProfile);
+
+	//Getlist of users
+	app.get('/api/auth/userlist', controller.mindersList);
 };

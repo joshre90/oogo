@@ -3,6 +3,20 @@ const mongoose = require('mongoose');
 const Profile = mongoose.model(
 	'Profile',
 	new mongoose.Schema({
+		id_user: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			required: true,
+		},
+
+		firstName: {
+			type: String,
+		},
+
+		lastName: {
+			type: String,
+		},
+
 		address: {
 			type: String,
 		},
@@ -19,7 +33,7 @@ const Profile = mongoose.model(
 			type: String,
 		},
 
-		Transport: {
+		transport: {
 			type: String,
 		},
 
@@ -30,19 +44,15 @@ const Profile = mongoose.model(
 			},
 		],
 
-		approval: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'approval',
-			},
-		],
+		approval: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'approval',
+		},
 
-		availability: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'availability',
-			},
-		],
+		availability: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'availability',
+		},
 
 		//Photo missing
 	})
